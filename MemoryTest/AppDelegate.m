@@ -6,7 +6,12 @@
 //  Copyright (c) 2012 Jan Ilavsky. All rights reserved.
 //
 
-#import "AppDelegate.h"
+@import UIKit;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (strong, nonatomic) UIWindow *window;
+@end
+
 
 @implementation AppDelegate
 

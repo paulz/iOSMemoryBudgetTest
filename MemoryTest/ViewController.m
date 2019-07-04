@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Jan Ilavsky. All rights reserved.
 //
 
-#import "ViewController.h"
 #import <sys/types.h>
 #import <sys/sysctl.h>
 #import <malloc/malloc.h>
@@ -14,6 +13,9 @@
 #define CRASH_MEMORY_FILE_NAME @"CrashMemory.dat"
 #define MEMORY_WARNINGS_FILE_NAME @"MemoryWarnings.dat"
 
+@import UIKit;
+@interface ViewController : UIViewController
+@end
 
 @interface ViewController () {
     
