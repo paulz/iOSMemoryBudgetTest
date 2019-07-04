@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		55A231FC16488541001C3E62 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 55A231FB16488541001C3E62 /* README.md */; };
-		55F58DBA164838D4008566AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F58DB9164838D4008566AE /* UIKit.framework */; };
-		55F58DBC164838D4008566AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F58DBB164838D4008566AE /* Foundation.framework */; };
-		55F58DBE164838D4008566AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F58DBD164838D4008566AE /* CoreGraphics.framework */; };
 		55F58DC4164838D4008566AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55F58DC2164838D4008566AE /* InfoPlist.strings */; };
 		55F58DC6164838D4008566AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F58DC5164838D4008566AE /* main.m */; };
 		55F58DCA164838D4008566AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F58DC9164838D4008566AE /* AppDelegate.m */; };
@@ -22,9 +19,6 @@
 		4BC79F1522CD84D0009555FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		55A231FB16488541001C3E62 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		55F58DB5164838D4008566AE /* MemoryTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		55F58DB9164838D4008566AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		55F58DBB164838D4008566AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		55F58DBD164838D4008566AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		55F58DC1164838D4008566AE /* MemoryTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MemoryTest-Info.plist"; sourceTree = "<group>"; };
 		55F58DC3164838D4008566AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		55F58DC5164838D4008566AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,9 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55F58DBA164838D4008566AE /* UIKit.framework in Frameworks */,
-				55F58DBC164838D4008566AE /* Foundation.framework in Frameworks */,
-				55F58DBE164838D4008566AE /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,9 +58,6 @@
 		55F58DB8164838D4008566AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				55F58DB9164838D4008566AE /* UIKit.framework */,
-				55F58DBB164838D4008566AE /* Foundation.framework */,
-				55F58DBD164838D4008566AE /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
