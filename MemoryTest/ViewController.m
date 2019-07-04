@@ -39,7 +39,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *userMemoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalMemoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userMemoryTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *kernelMemoryHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *allocatedMemoryHeightConstraint;
 
@@ -63,8 +62,6 @@ static unsigned long long oneMB = 1048576;
     
     CGFloat userMemoryProgressLength = self.progressBarBG.bounds.size.height *  (userMemorySizeMB / (float)physicalMemorySizeMB);
     
-    self.userMemoryTopConstraint.constant =  roundf(self.progressBarBG.bounds.size.height - userMemoryProgressLength - 3);
-
     self.kernelMemoryHeightConstraint.constant = roundf(self.progressBarBG.bounds.size.height - userMemoryProgressLength);
     
     self.allocatedMemoryHeightConstraint.constant = roundf(self.progressBarBG.bounds.size.height * (allocatedMB / (float)physicalMemorySizeMB));

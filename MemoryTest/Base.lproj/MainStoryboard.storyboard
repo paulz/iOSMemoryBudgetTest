@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="450 MB -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsD-ai-NRE">
-                                <rect key="frame" x="276" y="93.5" width="78" height="21"/>
+                                <rect key="frame" x="276" y="104.5" width="78" height="21"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Y4K-Ob-qfU"/>
@@ -94,13 +94,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qsD-ai-NRE" firstAttribute="centerY" secondItem="kpm-Pl-HOD" secondAttribute="top" constant="40" id="0zs-dW-82P"/>
                             <constraint firstItem="DtM-GZ-F47" firstAttribute="top" secondItem="Pwu-hG-ai5" secondAttribute="bottom" constant="10" id="1Y7-91-k11"/>
                             <constraint firstItem="qsD-ai-NRE" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Iac-7K-Cns" secondAttribute="leading" constant="276" id="6wv-1r-Hij"/>
                             <constraint firstItem="Iac-7K-Cns" firstAttribute="bottom" secondItem="DtM-GZ-F47" secondAttribute="bottom" constant="20" id="NaO-py-yq5"/>
-                            <constraint firstItem="kpm-Pl-HOD" firstAttribute="trailing" secondItem="3" secondAttribute="trailingMargin" id="Qci-IY-G3v"/>
                             <constraint firstItem="Pwu-hG-ai5" firstAttribute="trailing" secondItem="qsD-ai-NRE" secondAttribute="trailing" id="Tq5-dD-xvi"/>
                             <constraint firstItem="Iac-7K-Cns" firstAttribute="trailing" secondItem="DtM-GZ-F47" secondAttribute="trailing" constant="30" id="UO0-6w-sGg"/>
+                            <constraint firstItem="w4h-3R-lXV" firstAttribute="bottom" secondItem="qsD-ai-NRE" secondAttribute="centerY" id="VzQ-Jz-viK"/>
                             <constraint firstItem="Iac-7K-Cns" firstAttribute="trailing" secondItem="kpm-Pl-HOD" secondAttribute="trailing" constant="20" id="Wut-2I-SlK"/>
                             <constraint firstItem="Tra-vT-NAl" firstAttribute="trailing" secondItem="qsD-ai-NRE" secondAttribute="trailing" id="bgA-gG-bsD"/>
                             <constraint firstItem="Tra-vT-NAl" firstAttribute="top" secondItem="Iac-7K-Cns" secondAttribute="top" constant="10" id="d1e-XM-cWg"/>
@@ -122,7 +121,6 @@
                         <outlet property="startButton" destination="DtM-GZ-F47" id="cv0-Fk-REZ"/>
                         <outlet property="totalMemoryLabel" destination="Tra-vT-NAl" id="sRY-4C-h90"/>
                         <outlet property="userMemoryLabel" destination="qsD-ai-NRE" id="yxR-RT-jC4"/>
-                        <outlet property="userMemoryTopConstraint" destination="0zs-dW-82P" id="8TM-GL-9jW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
