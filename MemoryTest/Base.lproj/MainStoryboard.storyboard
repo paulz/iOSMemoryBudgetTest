@@ -24,10 +24,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4h-3R-lXV">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="51"/>
                                         <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="EtB-nJ-fPJ"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N91-g5-i2l">
                                         <rect key="frame" x="0.0" y="663" width="30" height="51"/>
                                         <color key="backgroundColor" red="0.69999998807907104" green="0.69999998807907104" blue="0.69999998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="51" id="Vsl-Ih-Pzc"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90268588066101074" green="0.90268588066101074" blue="0.90268588066101074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -38,8 +44,6 @@
                                     <constraint firstAttribute="width" constant="30" id="aer-in-C2d"/>
                                     <constraint firstAttribute="trailing" secondItem="w4h-3R-lXV" secondAttribute="trailing" id="e25-zN-gw9"/>
                                     <constraint firstItem="w4h-3R-lXV" firstAttribute="trailing" secondItem="N91-g5-i2l" secondAttribute="trailing" id="g5o-Oa-kxB"/>
-                                    <constraint firstItem="N91-g5-i2l" firstAttribute="top" secondItem="kpm-Pl-HOD" secondAttribute="top" constant="663" id="urg-ij-O3S"/>
-                                    <constraint firstAttribute="bottom" secondItem="w4h-3R-lXV" secondAttribute="bottom" constant="663" id="y9R-RR-sXF"/>
                                     <constraint firstAttribute="bottom" secondItem="N91-g5-i2l" secondAttribute="bottom" id="zNd-h3-3u2"/>
                                 </constraints>
                             </view>
@@ -78,7 +82,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="450 MB -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsD-ai-NRE">
-                                <rect key="frame" x="276" y="105" width="78" height="21"/>
+                                <rect key="frame" x="276" y="93.5" width="78" height="21"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Y4K-Ob-qfU"/>
@@ -90,7 +94,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qsD-ai-NRE" firstAttribute="top" secondItem="Tra-vT-NAl" secondAttribute="bottom" constant="30" id="0zs-dW-82P"/>
+                            <constraint firstItem="qsD-ai-NRE" firstAttribute="centerY" secondItem="kpm-Pl-HOD" secondAttribute="top" constant="40" id="0zs-dW-82P"/>
                             <constraint firstItem="DtM-GZ-F47" firstAttribute="top" secondItem="Pwu-hG-ai5" secondAttribute="bottom" constant="10" id="1Y7-91-k11"/>
                             <constraint firstItem="qsD-ai-NRE" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Iac-7K-Cns" secondAttribute="leading" constant="276" id="6wv-1r-Hij"/>
                             <constraint firstItem="Iac-7K-Cns" firstAttribute="bottom" secondItem="DtM-GZ-F47" secondAttribute="bottom" constant="20" id="NaO-py-yq5"/>
@@ -101,21 +105,24 @@
                             <constraint firstItem="Tra-vT-NAl" firstAttribute="trailing" secondItem="qsD-ai-NRE" secondAttribute="trailing" id="bgA-gG-bsD"/>
                             <constraint firstItem="Tra-vT-NAl" firstAttribute="top" secondItem="Iac-7K-Cns" secondAttribute="top" constant="10" id="d1e-XM-cWg"/>
                             <constraint firstItem="Pwu-hG-ai5" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Iac-7K-Cns" secondAttribute="leading" constant="276" id="d7x-XL-0Tl"/>
-                            <constraint firstItem="DtM-GZ-F47" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Iac-7K-Cns" secondAttribute="leading" id="f4V-vH-zl5"/>
-                            <constraint firstItem="Tra-vT-NAl" firstAttribute="leading" secondItem="Iac-7K-Cns" secondAttribute="leading" constant="276" id="fwg-AL-h86"/>
+                            <constraint firstItem="Tra-vT-NAl" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Iac-7K-Cns" secondAttribute="leading" constant="276" id="fwg-AL-h86"/>
                             <constraint firstItem="kpm-Pl-HOD" firstAttribute="leading" secondItem="Tra-vT-NAl" secondAttribute="trailing" constant="10" id="kDg-vA-w5K"/>
                             <constraint firstItem="DtM-GZ-F47" firstAttribute="top" secondItem="kpm-Pl-HOD" secondAttribute="bottom" constant="20" id="rE2-iD-avP"/>
                             <constraint firstItem="kpm-Pl-HOD" firstAttribute="top" secondItem="Iac-7K-Cns" secondAttribute="top" constant="20" id="uN0-it-ha0"/>
+                            <constraint firstItem="DtM-GZ-F47" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Iac-7K-Cns" secondAttribute="leading" constant="276" id="yis-cK-iS7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iac-7K-Cns"/>
                     </view>
                     <connections>
+                        <outlet property="allocatedMemoryHeightConstraint" destination="Vsl-Ih-Pzc" id="vgg-uQ-xfv"/>
                         <outlet property="alocatedMemoryBar" destination="N91-g5-i2l" id="gcP-G4-cNC"/>
                         <outlet property="kernelMemoryBar" destination="w4h-3R-lXV" id="hu3-V3-V2P"/>
+                        <outlet property="kernelMemoryHeightConstraint" destination="EtB-nJ-fPJ" id="xrI-x0-WKt"/>
                         <outlet property="progressBarBG" destination="kpm-Pl-HOD" id="GwD-xv-2XV"/>
                         <outlet property="startButton" destination="DtM-GZ-F47" id="cv0-Fk-REZ"/>
                         <outlet property="totalMemoryLabel" destination="Tra-vT-NAl" id="sRY-4C-h90"/>
                         <outlet property="userMemoryLabel" destination="qsD-ai-NRE" id="yxR-RT-jC4"/>
+                        <outlet property="userMemoryTopConstraint" destination="0zs-dW-82P" id="8TM-GL-9jW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>

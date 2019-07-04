@@ -39,6 +39,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *userMemoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalMemoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userMemoryTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kernelMemoryHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *allocatedMemoryHeightConstraint;
 
 @property (strong, nonatomic) NSString *crashFilePath;
 
@@ -58,22 +61,13 @@ static unsigned long long oneMB = 1048576;
     self.userMemoryLabel.text = [NSString stringWithFormat:@"%llu MB -", userMemorySizeMB];
     self.totalMemoryLabel.text = [NSString stringWithFormat:@"%llu MB -", physicalMemorySizeMB];
     
-    CGRect rect;
-    
     CGFloat userMemoryProgressLength = self.progressBarBG.bounds.size.height *  (userMemorySizeMB / (float)physicalMemorySizeMB);
     
-    rect = self.userMemoryLabel.frame;
-    rect.origin.y = roundf((self.progressBarBG.bounds.size.height - userMemoryProgressLength) - self.userMemoryLabel.bounds.size.height * 0.5f + self.progressBarBG.frame.origin.y - 3);
-    self.userMemoryLabel.frame = rect;
+    self.userMemoryTopConstraint.constant =  roundf(self.progressBarBG.bounds.size.height - userMemoryProgressLength - 3);
+
+    self.kernelMemoryHeightConstraint.constant = roundf(self.progressBarBG.bounds.size.height - userMemoryProgressLength);
     
-    rect = self.kernelMemoryBar.frame;
-    rect.size.height = roundf(self.progressBarBG.bounds.size.height - userMemoryProgressLength);
-    self.kernelMemoryBar.frame = rect;
-    
-    rect = self.alocatedMemoryBar.frame;
-    rect.size.height = roundf(self.progressBarBG.bounds.size.height * (allocatedMB / (float)physicalMemorySizeMB));
-    rect.origin.y = self.progressBarBG.bounds.size.height - rect.size.height;
-    self.alocatedMemoryBar.frame = rect;
+    self.allocatedMemoryHeightConstraint.constant = roundf(self.progressBarBG.bounds.size.height * (allocatedMB / (float)physicalMemorySizeMB));
 }
 
 - (void)refreshMemoryInfo {
