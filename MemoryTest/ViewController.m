@@ -75,19 +75,16 @@ static unsigned long long oneMB = 1048576;
 }
 
 - (void)refreshMemoryInfo {
-    
-    // Get memory info
-    int mib[2];
-    size_t length;
-    mib[0] = CTL_HW;
-    
-    mib[1] = HW_MEMSIZE;
-    length = sizeof(int64_t);
-    sysctl(mib, 2, &physicalMemorySize, &length, NULL, 0);
-    
-    mib[1] = HW_USERMEM;
-    length = sizeof(int64_t);
-    sysctl(mib, 2, &userMemorySize, &length, NULL, 0);
+    [self get:HW_MEMSIZE info:&physicalMemorySize];
+    [self get:HW_USERMEM info:&userMemorySize];
+}
+
+-(void)get:(int)hardwareInfoType info:(uint64_t *)value {
+    int hardwareId[] = {CTL_HW, hardwareInfoType};
+    size_t length = sizeof(*value);
+    sysctl(hardwareId, sizeof(hardwareId)/sizeof(*hardwareId),
+           value, &length,
+           NULL, 0);
 }
 
 - (void)refreshAppMemory {
