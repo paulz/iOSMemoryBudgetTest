@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 Jan Ilavsky. All rights reserved.
 //
 
-int main(int argc, char *argv[])
-{
+@import UIKit;
+
+int main(int argc, char *argv[]) {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, @"AppDelegate");
     }
