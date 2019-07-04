@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <sys/types.h>
 #import <sys/sysctl.h>
+#import <malloc/malloc.h>
 
 #define CRASH_MEMORY_FILE_NAME @"CrashMemory.dat"
 #define MEMORY_WARNINGS_FILE_NAME @"MemoryWarnings.dat"
@@ -89,8 +90,16 @@ static unsigned long long oneMB = 1048576;
     sysctl(mib, 2, &userMemorySize, &length, NULL, 0);
 }
 
+- (void)refreshAppMemory {
+    struct mstats stats = mstats();
+    physicalMemorySize = stats.bytes_total;
+    userMemorySize = stats.bytes_used;
+    NSLog(@"free:%zu, total: %zu", stats.bytes_free, stats.bytes_total);
+    malloc_printf("free:%y, used:%y, total: %y\n", stats.bytes_free, stats.bytes_used, stats.bytes_total);
+}
+
 - (void)allocateMemory {
-    NSUInteger mbToAllocate = 1;
+    NSUInteger mbToAllocate = 3;
     unsigned long long chunk = mbToAllocate * oneMB;
     
     p[allocatedMB] = malloc(chunk);
@@ -98,6 +107,7 @@ static unsigned long long oneMB = 1048576;
     allocatedMB += mbToAllocate;
     
     [self refreshMemoryInfo];
+    [self refreshAppMemory];
     [self refreshUI];
     
     if (firstMemoryWarningReceived) {
