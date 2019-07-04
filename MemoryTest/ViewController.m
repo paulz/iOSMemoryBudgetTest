@@ -172,8 +172,7 @@
     }
 }
 
-- (void)viewDidUnload {
-    
+- (void)dealloc {
     [timer invalidate];
     [self clearAll];    
     
@@ -181,8 +180,6 @@
     memoryWarnings = nil;
     
     initialLayoutFinished = NO;
-    
-    [super viewDidUnload];
 }
 
 - (void)didReceiveMemoryWarning
