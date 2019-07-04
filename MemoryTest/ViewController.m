@@ -37,16 +37,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalMemoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
+@property (strong, nonatomic) NSString *crashFilePath;
+
 @end
 
 @implementation ViewController
 
 #pragma mark - Helpers
 
+static unsigned long long oneMB = 1048576;
+
 - (void)refreshUI {
     
-    unsigned long long physicalMemorySizeMB = physicalMemorySize / 1048576;
-    unsigned long long userMemorySizeMB = userMemorySize / 1048576;
+    unsigned long long physicalMemorySizeMB = physicalMemorySize / oneMB;
+    unsigned long long userMemorySizeMB = userMemorySize / oneMB;
     
     self.userMemoryLabel.text = [NSString stringWithFormat:@"%llu MB -", userMemorySizeMB];
     self.totalMemoryLabel.text = [NSString stringWithFormat:@"%llu MB -", physicalMemorySizeMB];
@@ -86,18 +90,18 @@
 }
 
 - (void)allocateMemory {
+    NSUInteger mbToAllocate = 1;
+    unsigned long long chunk = mbToAllocate * oneMB;
     
-    p[allocatedMB] = malloc(1048576);
-    memset(p[allocatedMB], 0, 1048576);
-    allocatedMB += 1;
+    p[allocatedMB] = malloc(chunk);
+    memset(p[allocatedMB], 0, chunk);
+    allocatedMB += mbToAllocate;
     
     [self refreshMemoryInfo];
     [self refreshUI];
     
     if (firstMemoryWarningReceived) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-        [NSKeyedArchiver archiveRootObject:@(allocatedMB) toFile:[basePath stringByAppendingPathComponent:CRASH_MEMORY_FILE_NAME]];
+        [NSKeyedArchiver archiveRootObject:@(allocatedMB) toFile:self.crashFilePath];
     }
 }
 
@@ -143,6 +147,9 @@
     
     infoLabels = [[NSMutableArray alloc] init];
     memoryWarnings = [[NSMutableArray alloc] init];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    self.crashFilePath = [basePath stringByAppendingPathComponent:CRASH_MEMORY_FILE_NAME];
 }
 
 - (void)viewDidLayoutSubviews {
