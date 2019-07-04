@@ -45,11 +45,11 @@
 
 - (void)refreshUI {
     
-    int physicalMemorySizeMB = physicalMemorySize / 1048576;
-    int userMemorySizeMB = userMemorySize / 1048576;
+    unsigned long long physicalMemorySizeMB = physicalMemorySize / 1048576;
+    unsigned long long userMemorySizeMB = userMemorySize / 1048576;
     
-    self.userMemoryLabel.text = [NSString stringWithFormat:@"%d MB -", userMemorySizeMB];
-    self.totalMemoryLabel.text = [NSString stringWithFormat:@"%d MB -", physicalMemorySizeMB];
+    self.userMemoryLabel.text = [NSString stringWithFormat:@"%llu MB -", userMemorySizeMB];
+    self.totalMemoryLabel.text = [NSString stringWithFormat:@"%llu MB -", physicalMemorySizeMB];
     
     CGRect rect;
     
@@ -115,7 +115,7 @@
     [memoryWarnings removeAllObjects];
 }
 
-- (void)addLabelAtMemoryProgress:(int)memory text:(NSString*)text color:(UIColor*)color {
+- (void)addLabelAtMemoryProgress:(NSInteger)memory text:(NSString*)text color:(UIColor*)color {
 
     CGFloat length = self.progressBarBG.bounds.size.height * (1.0f - memory / (float)(physicalMemorySize / 1048576));
     
@@ -127,7 +127,7 @@
 
     UILabel *label = [[UILabel alloc] initWithFrame:rect];
     label.textAlignment = NSTextAlignmentRight;
-    label.text = [NSString stringWithFormat:@"%@ %d MB -", text, memory];
+    label.text = [NSString stringWithFormat:@"%@ %ld MB -", text, (long)memory];
     label.font = self.totalMemoryLabel.font;
     label.textColor = color;
     
