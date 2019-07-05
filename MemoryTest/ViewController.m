@@ -50,7 +50,7 @@
 
 #pragma mark - Helpers
 
-static unsigned long long oneMB = 1048576;
+static unsigned long oneMB = 1048576;
 
 - (void)refreshUI {
     
@@ -90,7 +90,7 @@ static unsigned long long oneMB = 1048576;
 
 - (void)allocateMemory {
     NSUInteger mbToAllocate = 3;
-    unsigned long long chunk = mbToAllocate * oneMB;
+    unsigned long chunk = mbToAllocate * oneMB;
     
     p[allocatedMB] = malloc(chunk);
     memset(p[allocatedMB], 0, chunk);
