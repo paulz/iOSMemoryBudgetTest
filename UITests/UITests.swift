@@ -23,5 +23,16 @@ class UITests: XCTestCase {
 
     func testOutOfMemory() {
         app.buttons["Start New Test"].tap()
+        XCTAssert(app.wait(for: .notRunning, timeout: 60), "app should stop running")
+        app.launch()
+        XCTAssert(app.wait(for: .runningForeground, timeout: 30), "app should restart")
+        add(screenshot(name: "after relaunch"))
+    }
+
+    func screenshot(name: String) -> XCTAttachment {
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        return attachment
     }
 }
